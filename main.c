@@ -5,7 +5,22 @@
 
 #define MAX_BUFFER_SIZE 1000
 #define MAX_LINE_ROW 5
+#define UNDERSCORE '_'
 
+void print_(int len){
+	char pr = '_';
+	char* under = "_";
+	char *string_p = malloc(len);
+	if (len == 1){
+		printf("%c\n", pr);
+	}else{
+		strcpy(string_p, under);
+		for (int i = 0; i < len - 1; i++){
+			strcat(string_p, under);
+		}
+		printf("%s\n", string_p);
+	}
+}
 int main()
 {
 	FILE *fp;
@@ -27,15 +42,15 @@ int main()
     sel = (rand() % (upper - lower + 1)) + lower;
 
 	 char *word = strtok(tab[sel-1], " ");
-printf("%d\n", sel);
+
 	while(word != NULL){
 		  if (j == sel){
 			printf("%s\n", word);
+			print_(strlen(word));
 			word = strtok(NULL, " ");
 			return 1;
 		  }
 		j++;
 	}
-
 	return 0;
 }
